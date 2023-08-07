@@ -1,33 +1,35 @@
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 
 public class fileManagement {
-
-public List<String> lista = new ArrayList<>();
-
-public void dataPalabras(List<String> palabras, String palabra) {
-	palabras.add(palabra);
-}
-
-public List<String> readFile_CSV() {
-		Scanner sc;
+	
+	public List<String> readFile_CSV() {
+		List<String> palabras = new ArrayList<>();
+		
 		try {
-			sc = new Scanner(new File("C:\\Users\\andre\\Downloads\\Palindromo\\Palindromos.csv"));
-			sc.useDelimiter(",");  
+			Scanner sc = new Scanner(new File("Palindromos.csv"));
+			sc.useDelimiter(",\\s*");
+			
 			while (sc.hasNext()) {
-				String elemento = sc.next();
-				
-				dataPalabras(lista, elemento);
-			}   
-			sc.close();  
+				String palabra = sc.next();
+				palabras.add(palabra);
+			}
+			
+			sc.close();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("ERROR - Archivo CSV no encontrado");
 		}
 		
-		return lista;
-}
-
+		return palabras;
+	}
+	
+	public List<String> dataPalabras() {
+		List<String> palabras = readFile_CSV();
+		
+		return palabras;
+	}
+	
 }

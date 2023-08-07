@@ -1,0 +1,13 @@
+La clase fileManagement lee el archivo CSV metiante el metodo readFile_CSV.
+Luego, se guardan en una lista mediante el metodo dataPalabras.
+
+La clase data recibe la lista de dataPalbras.
+Luego, itera la lista mediante el metodo iterList(dataPalbras).
+Luego manda cada palabra una por una a la clase compPalindromo mediante el metodo SendWord.
+
+La clase compPalindromo
+La funcion tiene como parametro una cadena, la posicion inicial y la final, primero mira si la posicion inicial es igual o mayor a la final, en este caso devuelve verdadero, despues mira si la posicion inicial del texto es igual a la posicion final del texto y en dicho caso vuelve a llamar a la funcion con la misma cadena pero con la posicion inicial +1 y la final -1, en caso de que no son iguales develeve falso y termina la funcion.
+
+La clase UI recibe mediante recibirCompPal, como verdadero o falso si la palabra word, es palindromo. Tambien recibe la palbra.
+Luego esta muestra el resultado mediante el metodo mostrarResultado.
+Se puede terminar mediante el metodo cerrar.
